@@ -9,13 +9,13 @@
 - [X] 코드가 정상적으로 동작하고 주어진 문제를 해결했나요?
   
 - [ ] 주석을 보고 작성자의 코드가 이해되었나요?
-  > 현재 평가하기 어려움
+  > 현재 평가가 어려움
 - [ ] 코드가 에러를 유발할 가능성이 없나요?
-  > 현재 평가하기 어려움
+  > 현재 평가가 어려움
 - [ ] 코드 작성자가 코드를 제대로 이해하고 작성했나요?
   > 재귀 방식으로 인버 셀을 탐색하는 경우는 이해가 필요함
 - [ ] 코드가 간결한가요?
-  > 현재 평가하기 어려움
+  > 현재 평가가 어려움
 
 # 예시
 1. 코드의 작동 방식을 주석으로 기록합니다.
@@ -23,6 +23,7 @@
 3. 참고한 링크 및 ChatGPT 프롬프트 명령어가 있다면 주석으로 남겨주세요.
 ```python
 # 미로찾기
+# 해당 코드를 리뷰하는 데 어려움이 있어, ChatGPT를 활용해 도출한 개선 방법을 아래 첨부드렸습니다.
 from pprint import pprint
 '''
 start_row: 경로 탐색의 시작 행 인덱스.
@@ -129,16 +130,16 @@ print('=' * 60)
 
 # 참고 링크 및 코드 개선
 ```python
-# ChatGPT의 제안을 인용했습니다.(답을 받는 데 있어 지연이 있어 일부 내용만 제안드립니다)
-# 아래 코드가 답을 도출하지 못했으나, 좀 더 보기 좋게 출력됩니다
+# ChatGPT의 제안을 인용했습니다.
+# 좀 더 보기 좋게 출력됩니다
 '''
 start_row: 경로 탐색의 시작 행 인덱스.
 start_col: 경로 탐색의 시작 열 인덱스.
 end_row: 종료 행 인덱스.
 end_col: 종료 컬럼 인덱스.
 matrix: 입력 2차원 리스트
-path : 탐색 중인 현재 경로를 저장 (문자열 형태)
-paths: 찾은 모든 유효한 경로를 저장 (문자열 형태)
+path : 탐색 중인 현재 경로를 저장 (리스트 형태)
+paths: 찾은 모든 유효한 경로를 저장 (리스트 형태)
 '''
 def find_path(matrix, start_row, start_col, end_row, end_col, path, paths):
     num_rows, num_cols = len(matrix), len(matrix[0])
@@ -151,11 +152,11 @@ def find_path(matrix, start_row, start_col, end_row, end_col, path, paths):
         return
 
     if start_row == end_row and start_col == end_col:
-        paths.append(path)
+        paths.append(path[:])
         return
 
     matrix[start_row][start_col] = 2
-    path += f'{start_row}{start_col}'
+    path.append((start_row, start_col))
 
     find_path(matrix, start_row - 1, start_col, end_row, end_col, path, paths)  # Up
     find_path(matrix, start_row + 1, start_col, end_row, end_col, path, paths)  # Down
@@ -163,7 +164,7 @@ def find_path(matrix, start_row, start_col, end_row, end_col, path, paths):
     find_path(matrix, start_row, start_col + 1, end_row, end_col, path, paths)  # Right
 
     matrix[start_row][start_col] = 0
-    path = path[:-2]
+    path.pop()
 
 # 입력 2차원 리스트
 matrix = [
@@ -175,7 +176,7 @@ matrix = [
 ]
 start_row, start_col = 0, 0
 end_row, end_col = 4, 4
-path = ''
+path = []
 paths = []
 
 find_path(matrix, start_row, start_col, end_row, end_col, path, paths)
@@ -196,10 +197,8 @@ print('리스트에 이동 경로 표시')
 print('=' * 60)
 for i, path in enumerate(paths):
     print(f'{i + 1}번째 =>')
-    num_rows, num_cols = len(matrix), len(matrix[0])
-    matrix_tmp = [[0] * num_cols for _ in range(num_rows)]
-    for j in range(0, len(path), 2):
-        x, y = int(path[j]), int(path[j+1])
+    matrix_tmp = [[0] * len(matrix[0]) for _ in range(len(matrix))]
+    for x, y in path:
         matrix_tmp[x][y] = 2
     for row in matrix_tmp:
         print(row)
