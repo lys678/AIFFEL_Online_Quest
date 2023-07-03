@@ -45,7 +45,7 @@ print('덧셈', c.add())
 # 참고 링크 및 코드 개선
 ```python
 #코드 리뷰 시 참고한 링크가 있다면 링크와 간략한 설명을 첨부합니다.
-sorted 함수 정리:https://blockdmask.tistory.com/466
-https://bskyvision.com/entry/python-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC-%EA%B0%9D%EC%B2%B4%EC%9D%98-get-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%82%AC%EC%9A%A9%EB%B2%95
+sorted 함수 정리 : https://blockdmask.tistory.com/466
+딕셔너리 객체의 get() 사용법 : https://bskyvision.com/entry/python-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC-%EA%B0%9D%EC%B2%B4%EC%9D%98-get-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%82%AC%EC%9A%A9%EB%B2%95
 # 코드 리뷰를 통해 개선한 코드가 있다면 코드와 간략한 설명을 첨부합니다.
 ```
