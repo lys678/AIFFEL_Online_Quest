@@ -45,7 +45,6 @@ print('덧셈', c.add())
 # 참고 링크 및 코드 개선
 ```python
 #코드 리뷰 시 참고한 링크가 있다면 링크와 간략한 설명을 첨부합니다.
-- sorted 함수 정리
-(https://blockdmask.tistory.com/466)
+sorted 함수 정리:https://blockdmask.tistory.com/466
 # 코드 리뷰를 통해 개선한 코드가 있다면 코드와 간략한 설명을 첨부합니다.
 ```
