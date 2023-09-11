@@ -57,6 +57,7 @@
 
 # 참고 링크 및 코드 개선
 ```
-# 코드 리뷰 시 참고한 링크가 있다면 링크와 간략한 설명을 첨부합니다.
-# 코드 리뷰를 통해 개선한 코드가 있다면 코드와 간략한 설명을 첨부합니다.
+https://huggingface.co/google/vit-base-patch32-384)https://huggingface.co/google/vit-base-patch32-384
+https://keras.io/examples/vision/vit_small_ds/?fbclid=IwAR3iuuzbXFmBhGY1HNieMcRSSsUKbXkWoNrULmox--ZiIDZV4L51WoKMO5o
+성능 개선에 관하여 이야기를 하던 도중 vit32라는 모델과 관련된 이야기가 나와서 이를 참고하여 전이학습을 통해 모델의 성능을 개선 시킬 수 있다고 생각합니다.
 ```
